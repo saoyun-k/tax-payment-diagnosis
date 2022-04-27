@@ -1,0 +1,81 @@
+@forward "../config/variables";
+@use "../config/variables" as var;
+@forward  "../mixin/font-tukusi";
+@use "../mixin/font-tukusi" as ft;
+@forward  "../mixin/site-padding";
+@use "../mixin/site-padding" as sp;
+@forward  "../function/convert-vp";
+@use "../function/convert-vp" as vp;
+@forward "../mixin/madia";
+@use "../mixin/madia";
+
+
+.recommend {
+  margin-top: vp.convertVw(148px, 1280px);
+  @include sp.sitePaddingBase(81px, 0px , 103px, 0px);
+  font-weight: bold;
+  font-family:  var.$fontYuGothic;
+  background-color: var.$colorWhite;
+  @include madia.deviceBreakPointMax(768px) {
+    @include sp.sitePaddingMiddle(223px, 0px , 313px, 0px);
+  }
+  @include madia.deviceBreakPointMax(375px) {
+    @include sp.sitePaddingSmall(124px, 0px , 174px, 0px);
+  }
+  &-container {
+    @include madia.deviceBreakPointMax(768px) {
+      margin: 0 20px;
+    }
+  }
+  &-information {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    &__lists {
+      width: vp.convertVw(464px, 1280px);
+      min-width: 375px;
+      &-list {
+        max-width: 324px;
+        min-width: 246px;
+        width: vp.convertVw(324px, 1280px);
+        margin: 0 auto;
+        &.name {
+          margin-top: vp.convertVw(107px, 1280px);
+          font-size: var.$recomFontSizeName;
+          @include madia.deviceBreakPointMin(1280px) {
+            font-size: 32px;
+          }
+        }
+        &.text {
+          margin-top: vp.convertVw(16px, 1280px);
+          font-size: 16px;
+          line-height: 1.6;
+        }
+        &.sns {
+          font-size: var.$recomFontSizeSns;
+          @include madia.deviceBreakPointMin(1280px) {
+            font-size: 16px;
+          }
+        }
+        &.twitter {
+          margin-top: vp.convertVw(52px, 1280px);
+        }
+        &.blog {
+          margin-top: vp.convertVw(16px, 1280px);
+        }
+      }
+    }
+    &__lists:nth-of-type(2) .text p {
+      width: vp.convertVw(340px, 1280px);
+      @include madia.deviceBreakPointMax(768px) {
+        width: auto;
+      }
+    }
+    &__lists:nth-of-type(2) .photo {
+      @include madia.deviceBreakPointMax(768px) {
+        margin-top: vp.convertVw(252px, 768px);
+      }
+    }
+  }
+}
+

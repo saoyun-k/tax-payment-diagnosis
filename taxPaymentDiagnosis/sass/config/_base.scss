@@ -1,0 +1,17 @@
+html {
+  visibility: hidden;
+  &.wf-active {
+    visibility: visible;
+  }
+}
+
+body {
+  max-height: 1280px;
+  min-width: 375px;
+  margin: 0 auto;
+  background-color: #C4CCEB;
+}
+
+img {
+  width: 100%;
+}

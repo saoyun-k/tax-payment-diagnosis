@@ -1,0 +1,54 @@
+@forward "../config/variables";
+@use "../config/variables" as var;
+@forward  "../mixin/font-tukusi";
+@use "../mixin/font-tukusi" as ft;
+@forward  "../mixin/site-padding";
+@use "../mixin/site-padding" as sp;
+@forward  "../function/convert-vp";
+@use "../function/convert-vp" as vp;
+@forward "../mixin/madia";
+@use "../mixin/madia";
+
+.first-view {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: vp.convertVw(141px, 1280px);
+  @include ft.fontTukusiB;
+  .catch-copy {
+    display: flex;
+    justify-content: center;
+    .catch-copy__inner {
+      font-size: var.$firstFontSizeLarger;
+      font-weight: bold;
+      @include madia.deviceBreakPointMin(1280px) {
+        font-size: 80px;
+        }
+        &-text {
+          .honest {
+            @include sp.sitePaddingBase(50px, 42px, 50px, 35px);
+            background-color: var.$colorWhite;
+          }
+          .tax {
+            display: inline-block;
+            @include sp.sitePaddingBase(53px, 55px, 47px, 47px);
+            background-color: var.$colorWhite;
+          }
+        }
+        &-text:nth-of-type(2) {
+          margin-top: vp.convertVw(26px, 1280px);
+        }
+      }
+    }
+  .arrow {
+    text-align: center;
+    margin-top: vp.convertVw(51px, 1280px);
+  }
+  
+  .fas {
+    font-size: var.$fontSizeArrow;
+    @include madia.deviceBreakPointMin(1280px) {
+      font-size: 37px;
+    }
+  }
+}
